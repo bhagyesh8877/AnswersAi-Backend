@@ -15,7 +15,7 @@ describe('Auth Endpoints', () => {
     const res = await request(app)
       .post('/api/users')
       .send({
-        email: 'test@example.com',
+        email: 'alice@example.com',
         password: 'password123',
       });
     expect(res.statusCode).toEqual(201);
@@ -26,7 +26,7 @@ describe('Auth Endpoints', () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({
-        email: 'test@example.com',
+        email: 'bob@example.com',
         password: 'password123',
       });
     expect(res.statusCode).toEqual(200);
@@ -37,8 +37,8 @@ describe('Auth Endpoints', () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({
-        email: 'test@example.com',
-        password: 'wrongpassword',
+        email: 'charlie@example.com',
+        password: 'password123',
       });
     expect(res.statusCode).toEqual(401);
   });
